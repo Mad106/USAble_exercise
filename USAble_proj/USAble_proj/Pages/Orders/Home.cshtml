@@ -1,0 +1,69 @@
+﻿@page
+@model IEnumerable<USAble_proj.Pages.Orders.Orders>
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Place Orders</h1>
+    
+    @* drop down menu to select order number *@
+    <p>
+        <label>Order Number:</label>
+
+        <select name="ordernums" id="ordernums">
+            <option value ="...">...</option>
+            @foreach (var item in Model) {
+                <option>
+                    @Html.DisplayFor(modelItem => item.OrderNum)
+                </option>
+            }
+        </select>
+
+        <input type="button" id="create_btn" name="Create" value="Create New Order" onclick="Increment()" />
+        
+    </p>
+    @* total order pops up for that number along with running total *@
+    @* drop down menu to select menu item to add to or remove from selected order *@
+    <p>
+        <label>Menu Item:</label>
+        <select name="item" id="item">
+            <option value="...">...</option>
+            <option value="Breakfast Scrambler">Breakfast Scrambler</option>
+            <option value="Veggie Breakfast Wrap">Veggie Breakfast Wrap</option>
+            <option value="Roast Beef">Roast Beef</option>
+            <option value="Roasted Turkey">Roasted Turkey</option>
+            <option value="Belgian Waffle Slam">Belgian Waffle Slam</option>
+            <option value="Lumberjack Slam">Lumberjack Slam</option>
+            <option value="Soup & Salad">Soup & Salad</option>
+            <option value="Grilled Chicken Salad">Grilled Chicken Salad</option>
+            <option value="Chef's Salad">Chef's Salad</option>
+            <option value="Side Salad">Side Salad</option>
+            <option value="Grilled Cheese">Grilled Cheese</option>
+            <option value="Classic Burger">Classic Burger</option>
+        </select>
+    </p>
+
+    @* a submit button that is greyed out until order number selected *@
+    <input type="button" id="add_btn" name="Add" value="Add" />
+    @* a remove button that is greyed out until order number selected *@
+    <input type="button" id="remove_btn" name="Remove" value="Remove" />
+
+    @* select up to one discount from dropdown menu *@
+    <br />
+    <br />
+    <p>
+        <label>Applied Discount:</label>
+        <select name="discount" id="discount">
+            <option value="...">...</option>
+            <option value="Veteran Discount">Veteran Discount 12%</option>
+            <option value="Senior Discount">Senior Discount 8%</option>
+            <option value="Employee Discount">Employee Discount 5%</option>
+            <option value="First Responder Discount">First Responder Discount 12%</option>
+        </select>
+
+        <input type="button" id="set_disc" name="Set" value="Set Discount" />
+    </p>
+    <input type="button" id="close_btn" name="Close" value="Close Order"/>
+    
+</div>

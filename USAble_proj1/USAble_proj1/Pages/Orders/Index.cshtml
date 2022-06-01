@@ -1,0 +1,143 @@
+﻿@page
+@model USAble_proj1.Pages.Orders.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Order Number
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Discount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Closed)
+            </th>
+            <th>
+                Ordered Items
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Subtotal)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Order) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Discount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Closed)
+            </td>
+            <td>    @* list items that are ordered *@
+                    <p>
+                    @if(!item.BreakfastScrambler.Equals(0) && item.BreakfastScrambler != null)
+                    {
+                        @Html.DisplayFor(model => item.BreakfastScrambler)
+                        <span>Breakfast Scrambler</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.VeggieBreakfastWrap.Equals(0) && item.VeggieBreakfastWrap != null)
+                    {
+                        @Html.DisplayFor(model => item.VeggieBreakfastWrap)
+                        <span>Veggie Breakfast Wrap</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.RoastBeef.Equals(0) && item.RoastBeef != null)
+                    {
+                        @Html.DisplayFor(model => item.RoastBeef)
+                        <span>Roast Beef</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.RoastedTurkey.Equals(0) && item.RoastedTurkey != null)
+                    {
+                        @Html.DisplayFor(model => item.RoastedTurkey)
+                        <span>Roasted Turkey</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.BelgianWaffleSlam.Equals(0) && item.BelgianWaffleSlam != null)
+                    {
+                        @Html.DisplayFor(model => item.BelgianWaffleSlam)
+                        <span>Belgian Waffle Slam</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.LumberjackSlam.Equals(0) && item.LumberjackSlam != null)
+                    {
+                        @Html.DisplayFor(model => item.LumberjackSlam)
+                        <span>Lumberjack Slam</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.SoupSalad.Equals(0) && item.SoupSalad != null)
+                    {
+                        @Html.DisplayFor(model => item.SoupSalad)
+                        <span>Soup & Salad</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.GrilledChickenSalad.Equals(0) && item.GrilledChickenSalad != null)
+                    {
+                        @Html.DisplayFor(model => item.GrilledChickenSalad)
+                        <span>Grilled Chicken Salad</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.ChefSalad.Equals(0) && item.ChefSalad != null)
+                    {
+                        @Html.DisplayFor(model => item.ChefSalad)
+                        <span>Chef's Salad'</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.SideSalad.Equals(0) && item.SideSalad != null)
+                    {
+                        @Html.DisplayFor(model => item.SideSalad)
+                        <span>Side Salad</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.GrilledCheese.Equals(0) && item.GrilledCheese != null)
+                    {
+                        @Html.DisplayFor(model => item.GrilledCheese)
+                        <span>Grilled Cheese</span>
+                    }
+                    </p>
+                    <p>
+                    @if(!item.ClassicBurger.Equals(0) && item.ClassicBurger != null)
+                    {
+                        @Html.DisplayFor(model => item.ClassicBurger)
+                        <span>Classic Burger</span>
+                    }
+                    </p>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Subtotal)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.ID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.ID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

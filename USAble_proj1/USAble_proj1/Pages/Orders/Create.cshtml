@@ -1,0 +1,88 @@
+﻿@page
+@model USAble_proj1.Pages.Orders.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Order</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            @*<div class="form-group">
+                <label asp-for="Order.ID" class="control-label"></label>
+                <input asp-for="Order.ID" class="form-control" />
+                <span asp-validation-for="Order.ID" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="Order.Discount" class="control-label"></label>
+                <select asp-for="Order.Discount" class="form-control" id="discount">
+                    <option value="...">...</option>
+                    <option value="Veteran Discount">Veteran Discount 12%</option>
+                    <option value="Senior Discount">Senior Discount 8%</option>
+                    <option value="Employee Discount">Employee Discount 5%</option>
+                    <option value="First Responder Discount">First Responder Discount 12%</option>
+                </select>
+                <span asp-validation-for="Order.Discount" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <br />
+                <p><b>Menu Items</b></p>
+                <br />
+                
+                <label asp-for="Order.BreakfastScrambler" class="control-label"></label>
+                <input asp-for="Order.BreakfastScrambler" class="form-control" />
+                <span asp-validation-for="Order.BreakfastScrambler" class="text-danger"></span>
+                <label asp-for="Order.VeggieBreakfastWrap" class="control-label"></label>
+                <input asp-for="Order.VeggieBreakfastWrap" class="form-control" />
+                <span asp-validation-for="Order.VeggieBreakfastWrap" class="text-danger"></span>
+                <label asp-for="Order.RoastBeef" class="control-label"></label>
+                <input asp-for="Order.RoastBeef" class="form-control" />
+                <span asp-validation-for="Order.RoastBeef" class="text-danger"></span>
+                <label asp-for="Order.RoastedTurkey" class="control-label"></label>
+                <input asp-for="Order.RoastedTurkey" class="form-control" />
+                <span asp-validation-for="Order.RoastedTurkey" class="text-danger"></span>
+                <label asp-for="Order.BelgianWaffleSlam" class="control-label"></label>
+                <input asp-for="Order.BelgianWaffleSlam" class="form-control" />
+                <span asp-validation-for="Order.BelgianWaffleSlam" class="text-danger"></span>
+                <label asp-for="Order.LumberjackSlam" class="control-label"></label>
+                <input asp-for="Order.LumberjackSlam" class="form-control" />
+                <span asp-validation-for="Order.LumberjackSlam" class="text-danger"></span>
+                <label asp-for="Order.SoupSalad" class="control-label"></label>
+                <input asp-for="Order.SoupSalad" class="form-control" />
+                <span asp-validation-for="Order.SoupSalad" class="text-danger"></span>
+                <label asp-for="Order.GrilledChickenSalad" class="control-label"></label>
+                <input asp-for="Order.GrilledChickenSalad" class="form-control" />
+                <span asp-validation-for="Order.GrilledChickenSalad" class="text-danger"></span>
+                <label asp-for="Order.ChefSalad" class="control-label"></label>
+                <input asp-for="Order.ChefSalad" class="form-control" />
+                <span asp-validation-for="Order.ChefSalad" class="text-danger"></span>
+                <label asp-for="Order.SideSalad" class="control-label"></label>
+                <input asp-for="Order.SideSalad" class="form-control" />
+                <span asp-validation-for="Order.SideSalad" class="text-danger"></span>
+                <label asp-for="Order.GrilledCheese" class="control-label"></label>
+                <input asp-for="Order.GrilledCheese" class="form-control" />
+                <span asp-validation-for="Order.GrilledCheese" class="text-danger"></span>
+                <label asp-for="Order.ClassicBurger" class="control-label"></label>
+                <input asp-for="Order.ClassicBurger" class="form-control" />
+                <span asp-validation-for="Order.ClassicBurger" class="text-danger"></span>
+                
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

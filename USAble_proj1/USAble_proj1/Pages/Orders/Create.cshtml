@@ -5,6 +5,56 @@
     ViewData["Title"] = "Create";
 }
 
+<head>
+    <script type="text/javascript">
+        window.onload = function() {
+            var btn1 = document.getElementById("create_btn");
+            btn1.onclick = function() {
+                var subtotal = 0;
+
+                if (document.getElementById("BS").value && document.getElementById("BS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("BS").value) * 8;
+                }
+                if (document.getElementById("VBW").value && document.getElementById("VBW").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("VBW").value) * 6;
+                }
+                if (document.getElementById("RB").value && document.getElementById("RB").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("RB").value) * 9;
+                }
+                if (document.getElementById("RT").value && document.getElementById("RT").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("RT").value) * 10;
+                }
+                if (document.getElementById("BWS").value && document.getElementById("BWS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("BWS").value) * 6;
+                }
+                if (document.getElementById("LS").value && document.getElementById("LS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("LS").value) * 10;
+                }
+                if (document.getElementById("SoS").value && document.getElementById("SoS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("SoS").value) * 8;
+                }
+                if (document.getElementById("GCS").value && document.getElementById("GCS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("GCS").value) * 9;
+                }
+                if (document.getElementById("CS").value && document.getElementById("CS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("CS").value) * 9;
+                }
+                if (document.getElementById("SS").value && document.getElementById("SS").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("SS").value) * 5;
+                }
+                if (document.getElementById("GC").value && document.getElementById("GC").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("GC").value) * 7;
+                }
+                if (document.getElementById("CB").value && document.getElementById("CB").value.length != 0) {
+                    subtotal += parseInt(document.getElementById("CB").value) * 8;
+                }
+                    
+                document.getElementById("subtotal").value = subtotal;
+            }
+        }
+    </script>
+</head>
+
 <h1>Create</h1>
 
 <h4>Order</h4>
@@ -13,19 +63,14 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            @*<div class="form-group">
-                <label asp-for="Order.ID" class="control-label"></label>
-                <input asp-for="Order.ID" class="form-control" />
-                <span asp-validation-for="Order.ID" class="text-danger"></span>
-            </div>*@
             <div class="form-group">
                 <label asp-for="Order.Discount" class="control-label"></label>
-                <select asp-for="Order.Discount" class="form-control" id="discount">
+                <select asp-for="Order.Discount" class="form-control">
                     <option value="...">...</option>
-                    <option value="Veteran Discount">Veteran Discount 12%</option>
-                    <option value="Senior Discount">Senior Discount 8%</option>
-                    <option value="Employee Discount">Employee Discount 5%</option>
-                    <option value="First Responder Discount">First Responder Discount 12%</option>
+                    <option value="Veteran Discount (12%)">Veteran Discount 12%</option>
+                    <option value="Senior Discount (8%)">Senior Discount 8%</option>
+                    <option value="Employee Discount (5%)">Employee Discount 5%</option>
+                    <option value="First Responder Discount (12%)">First Responder Discount 12%</option>
                 </select>
                 <span asp-validation-for="Order.Discount" class="text-danger"></span>
             </div>
@@ -35,45 +80,57 @@
                 <br />
                 
                 <label asp-for="Order.BreakfastScrambler" class="control-label"></label>
-                <input asp-for="Order.BreakfastScrambler" class="form-control" />
+                <input asp-for="Order.BreakfastScrambler" class="form-control" id="BS" value="0" />
                 <span asp-validation-for="Order.BreakfastScrambler" class="text-danger"></span>
                 <label asp-for="Order.VeggieBreakfastWrap" class="control-label"></label>
-                <input asp-for="Order.VeggieBreakfastWrap" class="form-control" />
+                <input asp-for="Order.VeggieBreakfastWrap" class="form-control" id="VBW" value="0" />
                 <span asp-validation-for="Order.VeggieBreakfastWrap" class="text-danger"></span>
                 <label asp-for="Order.RoastBeef" class="control-label"></label>
-                <input asp-for="Order.RoastBeef" class="form-control" />
+                <input asp-for="Order.RoastBeef" class="form-control" id="RB" value="0" />
                 <span asp-validation-for="Order.RoastBeef" class="text-danger"></span>
                 <label asp-for="Order.RoastedTurkey" class="control-label"></label>
-                <input asp-for="Order.RoastedTurkey" class="form-control" />
+                <input asp-for="Order.RoastedTurkey" class="form-control" id="RT" value="0" />
                 <span asp-validation-for="Order.RoastedTurkey" class="text-danger"></span>
                 <label asp-for="Order.BelgianWaffleSlam" class="control-label"></label>
-                <input asp-for="Order.BelgianWaffleSlam" class="form-control" />
+                <input asp-for="Order.BelgianWaffleSlam" class="form-control" id="BWS" value="0" />
                 <span asp-validation-for="Order.BelgianWaffleSlam" class="text-danger"></span>
                 <label asp-for="Order.LumberjackSlam" class="control-label"></label>
-                <input asp-for="Order.LumberjackSlam" class="form-control" />
+                <input asp-for="Order.LumberjackSlam" class="form-control" id="LS" value="0" />
                 <span asp-validation-for="Order.LumberjackSlam" class="text-danger"></span>
                 <label asp-for="Order.SoupSalad" class="control-label"></label>
-                <input asp-for="Order.SoupSalad" class="form-control" />
+                <input asp-for="Order.SoupSalad" class="form-control" id="SoS" value="0" />
                 <span asp-validation-for="Order.SoupSalad" class="text-danger"></span>
                 <label asp-for="Order.GrilledChickenSalad" class="control-label"></label>
-                <input asp-for="Order.GrilledChickenSalad" class="form-control" />
+                <input asp-for="Order.GrilledChickenSalad" class="form-control" id="GCS" value="0" />
                 <span asp-validation-for="Order.GrilledChickenSalad" class="text-danger"></span>
                 <label asp-for="Order.ChefSalad" class="control-label"></label>
-                <input asp-for="Order.ChefSalad" class="form-control" />
+                <input asp-for="Order.ChefSalad" class="form-control" id="CS" value="0" />
                 <span asp-validation-for="Order.ChefSalad" class="text-danger"></span>
                 <label asp-for="Order.SideSalad" class="control-label"></label>
-                <input asp-for="Order.SideSalad" class="form-control" />
+                <input asp-for="Order.SideSalad" class="form-control" id="SS" value="0" />
                 <span asp-validation-for="Order.SideSalad" class="text-danger"></span>
                 <label asp-for="Order.GrilledCheese" class="control-label"></label>
-                <input asp-for="Order.GrilledCheese" class="form-control" />
+                <input asp-for="Order.GrilledCheese" class="form-control" id="GC" value="0" />
                 <span asp-validation-for="Order.GrilledCheese" class="text-danger"></span>
                 <label asp-for="Order.ClassicBurger" class="control-label"></label>
-                <input asp-for="Order.ClassicBurger" class="form-control" />
+                <input asp-for="Order.ClassicBurger" class="form-control" id="CB" value="0" />
                 <span asp-validation-for="Order.ClassicBurger" class="text-danger"></span>
                 
             </div>
+            
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="hidden" asp-for="Order.Subtotal" class="form-control" id="subtotal" value="0" />
+                <span asp-validation-for="Order.Subtotal" class="text-danger"></span>
+            </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Order.Closed" /> @Html.DisplayNameFor(model => model.Order.Closed)
+                </label>
+            </div>
+            
+            <div class="form-group">
+                <input type="submit" id="create_btn" value="Create" class="btn btn-primary" />
             </div>
         </form>
     </div>

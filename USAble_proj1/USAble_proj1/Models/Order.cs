@@ -7,17 +7,25 @@ namespace USAble_proj1.Models
         public string? Discount { get; set; } = string.Empty;
         public bool Closed { get; set; } = false;
         public double Subtotal { get; set; } = 0;
-        public int? BreakfastScrambler { get; set; } = 0;
-        public int? VeggieBreakfastWrap { get; set; } = 0;
-        public int? RoastBeef { get; set; } = 0;
-        public int? RoastedTurkey { get; set; } = 0;
-        public int? BelgianWaffleSlam { get; set; } = 0;
-        public int? LumberjackSlam { get; set; } = 0;
-        public int? SoupSalad { get; set; } = 0;
-        public int? GrilledChickenSalad { get; set; } = 0;
-        public int? ChefSalad { get; set; } = 0;
-        public int? SideSalad { get; set; } = 0;
-        public int? GrilledCheese { get; set; } = 0;
-        public int? ClassicBurger { get; set; } = 0;
+        public string? BreakfastScrambler { get; set; }
+        public string? VeggieBreakfastWrap { get; set; }
+        public string? RoastBeef { get; set; }
+        public string? RoastedTurkey { get; set; }
+        public string? BelgianWaffleSlam { get; set; }
+        public string? LumberjackSlam { get; set; }
+        public string? SoupSalad { get; set; }
+        public string? GrilledChickenSalad { get; set; }
+        public string? ChefSalad { get; set; }
+        public string? SideSalad { get; set; }
+        public string? GrilledCheese { get; set; }
+        public string? ClassicBurger { get; set; }
+
+        public Order()
+        {
+            Subtotal = 0;
+        }
+
     }
+
+    
 }

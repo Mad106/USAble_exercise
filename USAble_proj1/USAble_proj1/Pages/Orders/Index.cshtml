@@ -26,7 +26,7 @@
                 Ordered Items
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Subtotal)
+                @Html.DisplayNameFor(model => model.Order[0].Total)
             </th>
             <th></th>
         </tr>
@@ -169,7 +169,7 @@
                         </p>
                     </td>
                     <td id="subtotal">
-                        @Html.DisplayFor(modelItem => item.Subtotal)
+                        @Html.DisplayFor(modelItem => item.Total)
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

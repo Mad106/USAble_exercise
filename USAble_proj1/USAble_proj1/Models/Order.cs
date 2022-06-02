@@ -7,6 +7,7 @@ namespace USAble_proj1.Models
         public string? Discount { get; set; } = string.Empty;
         public bool Closed { get; set; } = false;
         public double Subtotal { get; set; } = 0;
+        public double Total { get; set; } = 0;
         public string? BreakfastScrambler { get; set; }
         public string? VeggieBreakfastWrap { get; set; }
         public string? RoastBeef { get; set; }
@@ -23,6 +24,7 @@ namespace USAble_proj1.Models
         public Order()
         {
             Subtotal = 0;
+            Total = 0;
         }
 
     }

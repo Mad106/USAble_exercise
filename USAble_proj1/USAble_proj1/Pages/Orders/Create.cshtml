@@ -95,8 +95,8 @@
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Order.Name" class="control-label"></label>
-                <input asp-for="Order.Name" class="form-control" value="First Last" />
+                <label asp-for="Order.Name" class="control-label">Server Name (First and Last)</label>
+                <input asp-for="Order.Name" class="form-control" />
                 <span asp-validation-for="Order.Name" class="text-danger"></span>
             </div>
             <div class="form-group">

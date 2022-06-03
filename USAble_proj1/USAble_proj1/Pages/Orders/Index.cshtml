@@ -17,16 +17,16 @@
                 Order Number
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Discount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Order[0].Closed)
-            </th>
-            <th>
                 Ordered Items
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.Order[0].Discount)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.Order[0].Total)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].Closed)
             </th>
             <th></th>
         </tr>
@@ -37,12 +37,6 @@
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.ID)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Discount)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Closed)
                     </td>
                     <td>    @* list items that are ordered *@
                         <p>
@@ -169,7 +163,13 @@
                         </p>
                     </td>
                     <td>
+                        @Html.DisplayFor(modelItem => item.Discount)
+                    </td>
+                    <td>
                         @Html.DisplayFor(modelItem => item.Total)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Closed)
                     </td>
                     <td>
                         <a asp-page="./Edit" asp-route-id="@item.ID">Edit</a> |

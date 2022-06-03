@@ -4,9 +4,14 @@ namespace USAble_proj1.Models
     public class Order
     {
         public int ID { get; set; }
-        public string? Discount { get; set; } = string.Empty;
+        public string DateTime { get; set; } = string.Empty;
+        public string Name { get; set; } = string.Empty;
         public bool Closed { get; set; } = false;
+        public string? Discount { get; set; } = string.Empty;
+        public double DiscountNum { get; set; } = 0;
         public double Subtotal { get; set; } = 0;
+        public double PreTax { get; set; } = 0;
+        public double TaxNum { get; set; } = 0;
         public double Total { get; set; } = 0;
         public string? BreakfastScrambler { get; set; }
         public string? VeggieBreakfastWrap { get; set; }

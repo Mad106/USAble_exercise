@@ -14,23 +14,191 @@
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Order.ID)
         </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.ID)
+        </dd>
+        <dt class="col-sm-2">
+            Date/Time Order Placed
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.DateTime)
+        </dd>
+        <dt class="col-sm-2">
+            Name of Server
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Name)
+        </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Order.Discount)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Order.Discount)
         </dd>
+        
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Closed)
+            Items Ordered
         </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Closed)
+        <dd class="col-sm-10">    @* list items that are ordered *@
+            <p>
+                @if (Model.Order.BreakfastScrambler != null)
+                {
+                    if (!Model.Order.BreakfastScrambler.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.BreakfastScrambler)
+                        <span>Breakfast Scrambler - $8 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.VeggieBreakfastWrap != null)
+                {
+                    if (!Model.Order.VeggieBreakfastWrap.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.VeggieBreakfastWrap)
+                        <span>Veggie Breakfast Wrap - $6 each</span>
+                    }
+
+                }
+            </p>
+            <p>
+                @if (Model.Order.RoastBeef != null)
+                {
+                    if (!Model.Order.RoastBeef.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.RoastBeef)
+                        <span>Roast Beef - $9 each</span>
+                    }
+
+                }
+            </p>
+            <p>
+                @if (Model.Order.RoastedTurkey != null)
+                {
+                    if (!Model.Order.RoastedTurkey.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.RoastedTurkey)
+                        <span>Roasted Turkey - $10 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.BelgianWaffleSlam != null)
+                {
+                    if (!Model.Order.BelgianWaffleSlam.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.BelgianWaffleSlam)
+                        <span>Belgian Waffle Slam - $6 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.LumberjackSlam != null)
+                {
+                    if (!Model.Order.LumberjackSlam.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.LumberjackSlam)
+                        <span>Lumberjack Slam - $10 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.SoupSalad != null)
+                {
+                    if (!Model.Order.SoupSalad.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.SoupSalad)
+                        <span>Soup & Salad - $8 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.GrilledChickenSalad != null)
+                {
+                    if (!Model.Order.GrilledChickenSalad.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.GrilledChickenSalad)
+                        <span>Grilled Chicken Salad - $9 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.ChefSalad != null)
+                {
+                    if (!Model.Order.ChefSalad.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.ChefSalad)
+                        <span>Chef's Salad - $9 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.SideSalad != null)
+                {
+                    if (!Model.Order.SideSalad.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.SideSalad)
+                        <span>Side Salad - $5 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.GrilledCheese != null)
+                {
+                    if (!Model.Order.GrilledCheese.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.GrilledCheese)
+                        <span>Grilled Cheese - $7 each</span>
+                    }
+                }
+            </p>
+            <p>
+                @if (Model.Order.ClassicBurger != null)
+                {
+                    if (!Model.Order.ClassicBurger.Equals("0"))
+                    {
+                        @Html.DisplayFor(model => Model.Order.ClassicBurger)
+                        <span>Classic Burger - $8 each</span>
+                    }
+                }
+            </p>
         </dd>
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Order.Subtotal)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Order.Subtotal)
+        </dd>
+        <dt class="col-sm-2">
+            Discount Amount
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.DiscountNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.PreTax)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.PreTax)
+        </dd>
+        <dt class="col-sm-2">
+            Tax (7% state tax)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.TaxNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Total)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Total)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Closed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Closed)
         </dd>
     </dl>
 </div>

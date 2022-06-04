@@ -5,11 +5,14 @@
     ViewData["Title"] = "Create";
 }
 
+@* This page creates a new order from scratch so it is more detailed than the edit page *@
+
 <head>
     <script type="text/javascript">
         window.onload = function() {
             var btn1 = document.getElementById("create_btn");
             btn1.onclick = function() {
+                // date and time are hardcoded to be calculated when the create button is clicked
                 var currentdate = new Date(); 
                 var datetime = currentdate.getDate() + "/"
                                 + (currentdate.getMonth()+1)  + "/" 
@@ -19,6 +22,7 @@
                                 + currentdate.getSeconds();
                 document.getElementById("datetime").value = datetime;
                 
+                // first and last name are checked to make sure the lengths are within the required parameters
                 var first, last;
                 if (!(document.getElementById("firstname").value.length > 0 && document.getElementById("firstname").value.length <= 25))
                 {

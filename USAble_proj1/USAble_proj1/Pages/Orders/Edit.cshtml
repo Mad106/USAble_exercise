@@ -9,9 +9,10 @@
     <script type="text/javascript">
         window.onload = function() {
             var btn2 = document.getElementById("edit_btn");
-            btn2.onclick = function() {
+            btn2.onclick = function() { // data taken in and calculated to be stored in hidden fileds for form
                 var subtotal = 0;
 
+                // looks at number of each item to calculate subtotal
                 if (document.getElementById("BS").value && document.getElementById("BS").value.length != 0) {
                     subtotal += parseInt(document.getElementById("BS").value) * 8;
                 }
@@ -48,9 +49,11 @@
                 if (document.getElementById("CB").value && document.getElementById("CB").value.length != 0) {
                     subtotal += parseInt(document.getElementById("CB").value) * 8;
                 }
-                    
+                
+                // subtotal stored in hidden input field in form
                 document.getElementById("subtotal").value = subtotal;
 
+                // does not let you submit order if there were not menu items selected
                 if(subtotal == 0){
                     window.alert("At least one menu item must be selected. Please try creating an order again.");
                     window.history.back();
@@ -58,6 +61,7 @@
 
                 var total = subtotal;
 
+                // takes into consideration the discount (if applicable)
                 if (document.getElementById("discount").value == "Veteran Discount (12%)") {
                     document.getElementById("discountnum").value = Math.round(((total*0.12) + Number.EPSILON) * 100) / 100;
                     total *= 0.88;
@@ -72,6 +76,7 @@
                     total *= 0.88;
                 }
 
+                // values calculated and stored in hidden input field in form
                 document.getElementById("pretax").value = Math.round((total + Number.EPSILON) * 100) / 100;
                 document.getElementById("taxnum").value = Math.round(((total*0.07) + Number.EPSILON) * 100) / 100;
                 
@@ -91,7 +96,7 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Order.ID" />
+            <input type="hidden" asp-for="Order.ID" />  @* hidden because cannot change *@
             
             <div class="form-group">
                 <label asp-for="Order.Discount" class="control-label"><strong></strong></label>
@@ -111,6 +116,7 @@
                 <p><b>Menu Items</b></p>
                 <br />
                 
+                @* value is originally data stored in that data member so if not changed that value is kept *@
                 <label asp-for="Order.BreakfastScrambler" class="control-label"></label>
                 <input asp-for="Order.BreakfastScrambler" class="form-control" id="BS" value=@Model.Order.BreakfastScrambler />
                 <span asp-validation-for="Order.BreakfastScrambler" class="text-danger"></span>
@@ -147,9 +153,7 @@
                 <label asp-for="Order.ClassicBurger" class="control-label"></label>
                 <input asp-for="Order.ClassicBurger" class="form-control" id="CB" value=@Model.Order.ClassicBurger />
                 <span asp-validation-for="Order.ClassicBurger" class="text-danger"></span>
-                
             </div>
-
 
             <br />
             <div class="form-group form-check">
@@ -160,6 +164,8 @@
                  </label>
             </div>
             <br />
+
+            @* all following fileds are hidden because the user doesn't enter any of the values, they are calculated in the js *@
             <div class="form-group">
                 <input type="hidden" asp-for="Order.Subtotal" class="form-control" id="subtotal" value="0" />
                 <span asp-validation-for="Order.Subtotal" class="text-danger"></span>
@@ -180,6 +186,7 @@
                 <input type="hidden" asp-for="Order.Total" class="form-control" id="total" value="0" />
                 <span asp-validation-for="Order.Total" class="text-danger"></span>
             </div>
+
             <div class="form-group">
                 <input type="submit" id="edit_btn" value="Save" class="btn btn-primary" />
             </div>

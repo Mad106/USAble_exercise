@@ -5,7 +5,7 @@ namespace USAble_proj1.Models
     {
         public int ID { get; set; }
         public string DateTime { get; set; } = string.Empty;
-        public string Name { get; set; } = string.Empty;
+        public string? Name { get; set; }    // updated db.Order to set Name as VARCHAR(51) (25 first name + 25 last name + 1 space)
         public bool Closed { get; set; } = false;
         public string? Discount { get; set; } = string.Empty;
         public double DiscountNum { get; set; } = 0;

@@ -50,6 +50,12 @@
                 }
                     
                 document.getElementById("subtotal").value = subtotal;
+
+                if(subtotal == 0){
+                    window.alert("At least one menu item must be selected. Please try creating an order again.");
+                    window.history.back();
+                }
+
                 var total = subtotal;
 
                 if (document.getElementById("discount").value == "Veteran Discount (12%)") {
@@ -69,7 +75,8 @@
                 document.getElementById("pretax").value = Math.round((total + Number.EPSILON) * 100) / 100;
                 document.getElementById("taxnum").value = Math.round(((total*0.07) + Number.EPSILON) * 100) / 100;
                 
-                total *= 1.07;
+                var state_tax = 0.07; // 7% state tax
+                total += total * state_tax;
                 document.getElementById("total").value = Math.round((total + Number.EPSILON) * 100) / 100;
             }
         }
@@ -87,7 +94,7 @@
             <input type="hidden" asp-for="Order.ID" />
             
             <div class="form-group">
-                <label asp-for="Order.Discount" class="control-label"></label>
+                <label asp-for="Order.Discount" class="control-label"><strong></strong></label>
                 <select asp-for="Order.Discount" class="form-control" id="discount">
                     <option value="...">...</option>
                     <option value="Veteran Discount (12%)">Veteran Discount 12%</option>
@@ -144,11 +151,15 @@
             </div>
 
 
+            <br />
             <div class="form-group form-check">
                 <label class="form-check-label">
+                <strong>
                     <input class="form-check-input" asp-for="Order.Closed" /> @Html.DisplayNameFor(model => model.Order.Closed)
-                </label>
+                </strong>
+                 </label>
             </div>
+            <br />
             <div class="form-group">
                 <input type="hidden" asp-for="Order.Subtotal" class="form-control" id="subtotal" value="0" />
                 <span asp-validation-for="Order.Subtotal" class="text-danger"></span>

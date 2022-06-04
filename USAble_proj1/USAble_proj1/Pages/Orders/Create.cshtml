@@ -18,6 +18,20 @@
                                 + currentdate.getMinutes() + ":" 
                                 + currentdate.getSeconds();
                 document.getElementById("datetime").value = datetime;
+                
+                var first, last;
+                if (!(document.getElementById("firstname").value.length > 0 && document.getElementById("firstname").value.length <= 25))
+                {
+                    window.alert("Server First Name must be between 1 and 25 characters (inclusively)");
+                    window.history.back();
+                }
+                if (!(document.getElementById("lastname").value.length > 0 && document.getElementById("lastname").value.length <= 25))
+                {
+                    window.alert("Server Last Name must be between 1 and 25 characters (inclusively)");
+                    window.history.back();
+                }
+                
+                document.getElementById("name").value = document.getElementById("firstname").value + " " + document.getElementById("lastname").value;
 
                 var subtotal = 0;
 
@@ -59,6 +73,14 @@
                 }
                     
                 document.getElementById("subtotal").value = subtotal;
+                console.log(subtotal);
+
+                if(subtotal == 0)
+                {
+                    window.alert("At least one menu item must be selected. Please try creating an order again.");
+                    window.history.back();
+                }
+
                 var total = subtotal;
 
                 if (document.getElementById("discount").value == "Veteran Discount (12%)") {
@@ -78,9 +100,10 @@
                 document.getElementById("pretax").value = Math.round((total + Number.EPSILON) * 100) / 100;
                 document.getElementById("taxnum").value = Math.round(((total*0.07) + Number.EPSILON) * 100) / 100;
                 
-                total *= 1.07;
+                var state_tax = 0.07;   // 7% state tax
+                total += total * state_tax;
                 document.getElementById("total").value = Math.round((total + Number.EPSILON) * 100) / 100;
-                
+            console.log(total);
             }
         }
     </script>
@@ -94,13 +117,22 @@
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <label><strong>Server Name</strong></label>
             <div class="form-group">
-                <label asp-for="Order.Name" class="control-label">Server Name (First and Last)</label>
-                <input asp-for="Order.Name" class="form-control" />
-                <span asp-validation-for="Order.Name" class="text-danger"></span>
+                <label>First Name</label>
+                <input id="firstname" />
             </div>
             <div class="form-group">
-                <label asp-for="Order.Discount" class="control-label"></label>
+                <label>Last Name</label>
+                <input id="lastname" />
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Order.Name" class="form-control" id="name" />
+                <span asp-validation-for="Order.Name" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Order.Discount" class="control-label"><strong></strong></label>
                 <select asp-for="Order.Discount" class="form-control" id="discount">
                     <option value="...">...</option>
                     <option value="Veteran Discount (12%)">Veteran Discount 12%</option>
@@ -154,11 +186,15 @@
                 
             </div>
 
+            <br />
             <div class="form-group form-check">
                 <label class="form-check-label">
+                <strong>
                     <input class="form-check-input" asp-for="Order.Closed" /> @Html.DisplayNameFor(model => model.Order.Closed)
-                </label>
+                </strong>
+                 </label>
             </div>
+            <br />
 
             <div class="form-group">
                 <input type="hidden" asp-for="Order.DateTime" class="form-control" id="datetime" value="0" />

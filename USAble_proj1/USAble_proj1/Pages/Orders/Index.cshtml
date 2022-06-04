@@ -20,7 +20,16 @@
                 Ordered Items
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Order[0].Discount)
+                @Html.DisplayNameFor(model => model.Order[0].Subtotal)
+            </th>
+            <th>
+                Discount
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Order[0].PreTax)
+            </th>
+            <th>
+                Tax Amount
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Order[0].Total)
@@ -163,7 +172,16 @@
                         </p>
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.Discount)
+                        @Html.DisplayFor(modelItem => item.Subtotal)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DiscountNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PreTax)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TaxNum)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.Total)

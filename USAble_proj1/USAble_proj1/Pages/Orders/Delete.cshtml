@@ -19,22 +19,28 @@
             @Html.DisplayFor(model => model.Order.ID)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Discount)
+            Server Name
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Discount)
+            @Html.DisplayFor(model => model.Order.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.DateTime)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.DateTime)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Order.Total)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Order.Total)
         </dd>
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.Order.Closed)
         </dt>
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Order.Closed)
-        </dd>
-        <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Order.Subtotal)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Order.Subtotal)
         </dd>
     </dl>
     

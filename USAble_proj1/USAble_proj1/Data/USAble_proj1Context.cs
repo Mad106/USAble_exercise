@@ -15,5 +15,6 @@ namespace USAble_proj1.Data
         }
 
         public DbSet<USAble_proj1.Models.Order>? Order { get; set; }
+
     }
 }
